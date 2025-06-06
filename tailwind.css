@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Allow changing font family via CMS */
+  html {
+    font-family: var(--font-family);
+  }
+
+  /** Remove default styles from input[type=number] */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Disable scroll once drawer/modal is openned */
+  body:has(.drawer-toggle:checked),
+  body:has(.modal-toggle:checked) {
+    overflow: hidden;
+    height: 100vh;
+  }
+}
+
+.group:disabled .group-disabled\:animate-progress {
+  animation: progress-frame ease normal;
+}
+
+@keyframes progress-frame {
+  0% {
+    --dot-progress: 0%;
+  }
+  to {
+    --dot-progress: 100%;
+  }
+}
+
+/* Adicione sua classe customizada aqui: */
+@layer utilities {
+  .leading-normal {
+    color: #505050;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 2em;
+    letter-spacing: 0.42px;
+  }
+}
